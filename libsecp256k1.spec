@@ -9,7 +9,7 @@ Summary:	Bitcoin Cross-Platform C++ Development Toolkit
 # Summary(pl.UTF-8):	-
 Name:		libsecp256k1
 Version:	0.1.0.13
-Release:	0.2
+Release:	1
 License:	AGPL with a lesser clause
 Group:		Libraries
 Source0:	https://github.com/libbitcoin/secp256k1/archive/v%{version}.tar.gz 
