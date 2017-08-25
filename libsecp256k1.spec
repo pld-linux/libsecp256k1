@@ -9,7 +9,7 @@ Summary:	Bitcoin Cross-Platform C++ Development Toolkit
 # Summary(pl.UTF-8):	-
 Name:		libsecp256k1
 Version:	0.1.0.13
-Release:	0.1
+Release:	0.2
 License:	AGPL with a lesser clause
 Group:		Libraries
 Source0:	https://github.com/libbitcoin/secp256k1/archive/v%{version}.tar.gz 
@@ -111,8 +111,10 @@ Dokumentacja API biblioteki %{name}.
 #%{__autoheader}
 #%{__automake}
 ./autogen.sh
+# NOTE: --enable-module-recovery  to avoid: https://github.com/libbitcoin/libbitcoin/issues/397
 %configure \
-	%{!?with_static_libs:--disable-static}
+	%{!?with_static_libs:--disable-static} \
+	--enable-module-recovery
 %{__make}
 ./tests
 
@@ -153,7 +155,7 @@ rm -rf $RPM_BUILD_ROOT
 #%{_libdir}/libFOO.la
 #%%{_includedir}/%{name}
 %{_includedir}/secp256k1.h
-
+%{_includedir}/secp256k1_recovery.h
 #%%{_aclocaldir}/%{name}.m4
 %{_pkgconfigdir}/%{name}.pc
 
