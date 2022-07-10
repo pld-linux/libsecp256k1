@@ -8,19 +8,13 @@
 Summary:	Optimized C library for EC operations on curve secp256k1
 Summary(pl.UTF-8):	Zoptymalizowana biblioteka C do operacji EC na krzywej secp256k1
 Name:		libsecp256k1
-Version:	0.1.0.16
-%define	gitref	5a373e416025ae6465b00aea18dd6d69111e54ca
-%define	snap	20191026
-%define	rel	1
-Release:	0.%{snap}.%{rel}
+Version:	0.1.0.20
+Release:	1
 License:	MIT
 Group:		Libraries
 #Source0Download: https://github.com/libbitcoin/secp256k1/releases
-# releases
-#Source0:	https://github.com/libbitcoin/secp256k1/archive/v%{version}/secp256k1-%{version}.tar.gz
-# no tag for 0.1.0.16, use snapshot
-Source0:	https://github.com/libbitcoin/secp256k1/archive/%{gitref}/secp256k1-%{snap}.tar.gz
-# Source0-md5:	692fb5624b5c49bd1648d9cc04d798b9
+Source0:	https://github.com/libbitcoin/secp256k1/archive/v%{version}/secp256k1-%{version}.tar.gz
+# Source0-md5:	6f1a2419e6a76f8103b9d858b8213049
 URL:		https://libbitcoin.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
@@ -61,7 +55,7 @@ Static secp256k1 library.
 Statyczna biblioteka secp256k1.
 
 %prep
-%setup -q -n secp256k1-%{gitref}
+%setup -q -n secp256k1-%{version}
 
 %build
 %{__libtoolize}
@@ -97,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING README.md TODO
+%doc COPYING README.md SECURITY.md
 %attr(755,root,root) %{_libdir}/libsecp256k1.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libsecp256k1.so.0
 
